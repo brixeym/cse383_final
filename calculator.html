@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>hw12</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<!-- Calculator API-->
+		<script src="https://api.clearllc.com/api/v2/math/Add?api_key=bed859b37ac6f1dd59387829a18db84c22ac99c09ee0f5fb99cb708364858818&n1=4&n2=5"></script>
+	</head>
+
+	<style>
+		.display {
+      		padding: 15px;
+      		width: 250px;
+      		text-align: right;
+      		font-size: 20px;
+      		border-top-left-radius:10px;
+      		border-top-right-radius:10px;
+		}
+		button {
+      		padding: 10px;
+      		width: 67px;
+      		height: 45px;
+      		margin-top: 10px;
+      		background-color: rgb(194, 194, 194);
+      		color: black;
+      		font-size: 20px;
+		}
+		button:hover {
+ 			cursor: pointer;
+ 			background-color: rgb(182, 178, 178);
+		}
+		button:active {
+ 			background-color: rgb(136, 136, 136);
+		}
+
+	</style>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		    	<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<a class="navbar-brand" href="./main.html">Milena's Site</a>
+
+		  	<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+		    	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			      	<li class="nav-item">
+			        	<a class="nav-link" href="./main.html">Home <span class="sr-only">(current)</span></a>
+			      	</li>
+			      	<li class="nav-item active">
+			        	<a class="nav-link" href="./calculator.html">Calculator</a>
+			      	</li>
+			      	<li class="nav-item">
+			        	<a class="nav-link" href="./weather_forecast.html">Weather Forecast</a>
+			      	</li>
+			      	<li class="nav-item">
+			        	<a class="nav-link" href="sensor_update.html">Sensor Update</a>
+			      	</li>
+		    	</ul>
+		  </div>
+		</nav>
+
+		<div class="container pt-3">
+			<h4 style="text-align: center;">Sorry, I don't work yet.</h4>
+		</div>
+
+		<div class="container pt-3">
+			<div class="display">
+				<p id="output">0</p>
+			</div>
+			<div class="first-row">
+			   <button id="r1-1" onclick="forclear()" style="width: 138px;">C</button>
+			   <button id="r1-3" onclick="perc()"> % </button>
+			   <button id="r1-4">/</button>
+			</div>
+			<div class="second-row">
+			   <button id="r2-1" value="7" onclick="fordisplay('7') ">7</button>
+			   <button id="r2-2" value="8" onclick="fordisplay('8') ">8</button>
+			   <button id="r2-3" value="9" onclick="fordisplay('9') ">9</button>
+			   <button id="r2-4" value="X" onclick="fordisplay('X') ">X</button>
+			</div>
+			<div class="third-row">
+			   <button id="r3-1" value="4" onclick="fordisplay('4') ">4</button>
+			   <button id="r3-2" value="5" onclick="fordisplay('5') ">5</button>
+			   <button id="r3-3" value="6" onclick="fordisplay('6') ">6</button>
+			   <button id="r3-4" value="-" onclick="fordisplay('-') ">-</button>
+			</div>
+			<div class="fourth-row">
+			   <button id="r4-1" value="1" onclick="fordisplay('1') ">1</button>
+			   <button id="r4-2" value="2" onclick="fordisplay('2') ">2</button>
+			   <button id="r4-3" value="3" onclick="fordisplay('3') ">3</button>
+			   <button id="r4-4" value="+" onclick="fordisplay('+') ">+</button>
+			</div>
+			<div class="fifth-row">
+			  <button id="r5-1" style="width: 138px;">0</button>
+			  <button id="r5-2" >.</button>
+			  <button id="r5-3" value="=" onclick="solve()" >=</button>
+			</div>
+		</div>
+
+		<script language="JavaScript">
+			function forclear() {
+      			document.getElementById("output").innerHTML = "0";
+			}
+			function removeZero() {
+		      	var value = document.getElementById("output").innerHTML;
+		      	if (value == "0") {
+		           	value = " "
+		           	document.getElementById("output").innerHTML = value;
+      			}
+			}
+			function perc() {
+			    var value = document.getElementById("output").innerHTML;
+			    value = value / 100;
+			    document.getElementById("output").innerHTML = value;
+			}
+			function fordisplay(value) {
+      			removeZero()
+      			document.getElementById("output").innerHTML += value;
+			}
+			function solve() {
+     			removeZero()
+     			var equation = document.getElementById("output").innerHTML;
+     			var solved = eval(equation);
+     			document.getElementById('output').innerHTML = solved;
+			}
+		</script>
+
+	</body>
+</html>
